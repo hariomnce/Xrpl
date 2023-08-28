@@ -1,19 +1,18 @@
 const xrpl = require('xrpl')
 
 // Load seed value from an environment variable:
-const my_wallet = xrpl.Wallet.fromSeed(process.env['sEd7NBfMZn6P5MDzdQHQeuwRSnDx55R'])
+const my_wallet = xrpl.Wallet.fromSeed('sEdTdqtji4Fk4h6XpEjDAR17zFMzGTr') //seed
 
 // For offline signing, you need to know your address's next Sequence number.
 // Alternatively, you could use a Ticket in place of the Sequence number.
 // This is useful when you need multiple signatures and may want to process transactions out-of-order.
-// For details, see: https://xrpl.org/tickets.html
 let my_seq = 21404872
 
-// Provide *all* required fields before signing a transaction
+// Provide *all* required fields before signing a tranaction
 const txJSON = {
   "Account": my_wallet.address,
   "TransactionType":"Payment",
-  "Destination":"rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn",
+  "Destination":"rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn", //wallet address
   "Amount":"13000000",
   "Flags":2147483648,
   "LastLedgerSequence":7835923, // Optional, but recommended.
